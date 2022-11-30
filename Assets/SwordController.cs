@@ -19,6 +19,9 @@ public class SwordController : MonoBehaviour
 
     Vector3 speed;
 
+    [SerializeField] Rigidbody2D playerRb;
+    Vector3 lastVelocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +110,12 @@ public class SwordController : MonoBehaviour
 
         var velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
 
+        var leftOverVelocity = (velocity - lastVelocity) * 0.5f;
+
+        playerRb.AddForce(leftOverVelocity, ForceMode2D.Impulse);
+
+
+
         //var target = (playerToMouse - transform.position) + playerTransform.position;
         var target = playerToMouse - (transform.position + velocity * Time.deltaTime) + playerTransform.position; 
 
@@ -128,6 +137,9 @@ public class SwordController : MonoBehaviour
         //speed = towardsPlayer * slowdown;
         speed = towardsTarget - slowdown;
 
+        if (velocity.magnitude > 0.1f)
+            Debug.Log("rara");
+
         if (speed.magnitude > maxSpeed)
         {
             speed = speed.normalized * maxSpeed;
@@ -142,6 +154,11 @@ public class SwordController : MonoBehaviour
             rb.AddForce(speed, ForceMode2D.Impulse);
         }
 
+        lastVelocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
+
+        //Debug.Log("velocity change: " + newVelocity);
+
+
         float mouseAngle = Vector3.SignedAngle(Vector3.right, playerToMouse, Vector3.forward);
 
         var playerToSword = transform.position - playerTransform.position;
@@ -152,9 +169,11 @@ public class SwordController : MonoBehaviour
 
         float angleDiff = playerAngle - mouseAngle;
 
-        var torque = Mathf.Deg2Rad * angleDiff * rb.inertia;
+        //var torque = Mathf.Deg2Rad * angleDiff * rb.inertia;
 
-        rb.AddTorque(torque, ForceMode2D.Impulse);
+        //rb.AddTorque(torque, ForceMode2D.Impulse);
+
+
 
 
         //var torque = angle * acceleration * Time.deltaTime;
@@ -186,7 +205,7 @@ public class SwordController : MonoBehaviour
 
 
         //transform.position = newPos;
-        //transform.rotation = Quaternion.Euler(0, 0, angle);
+        //transform.rotation = Quaternion.Euler(0, 0, mouseAngle);
         if (debugMode)
         {
             Debug.DrawLine(playerTransform.position, playerToMouse + playerTransform.position, Color.red);
