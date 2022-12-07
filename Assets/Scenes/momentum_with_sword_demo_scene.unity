@@ -4160,10 +4160,10 @@ MonoBehaviour:
   playerTransform: {fileID: 525085658}
   debugMode: 1
   rb: {fileID: 0}
-  acceleration: 1000
+  acceleration: 100
   slowDownRadius: 1
   stopRadius: 0
-  maxSpeed: 1000
+  maxSpeed: 100
   maxRotationSpeed: 1
   slowDownLimitTorque: 0.1
   rotationAcceleration: 10

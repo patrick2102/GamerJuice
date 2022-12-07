@@ -118,7 +118,7 @@ public class SwordController : MonoBehaviour
 
         var velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
 
-        var leftOverVelocity = (velocity - lastVelocity);
+        var leftOverVelocity = (velocity - lastVelocity) * 0.5f;
 
         playerRb.AddForce(leftOverVelocity, ForceMode2D.Impulse);
 
