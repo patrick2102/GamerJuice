@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SwordController : MonoBehaviour
 {
@@ -16,8 +17,15 @@ public class SwordController : MonoBehaviour
     [SerializeField] float slowDownRadius;
     [SerializeField] float stopRadius;
     [SerializeField] float maxSpeed;
+    [SerializeField] float maxRotationSpeed = 0.25f;
+
+    [SerializeField] float slowDownLimitTorque;
+    [SerializeField] float rotationAcceleration;
+
 
     Vector3 speed;
+    float rotation;
+    float rotationBuffer = 0.0f;
 
     [SerializeField] Rigidbody2D playerRb;
     Vector3 lastVelocity;
@@ -158,62 +166,62 @@ public class SwordController : MonoBehaviour
 
         //Debug.Log("velocity change: " + newVelocity);
 
-
-        float mouseAngle = Vector3.SignedAngle(Vector3.right, playerToMouse, Vector3.forward);
-
         var playerToSword = transform.position - playerTransform.position;
         playerToSword.z = 0.0f;
         playerToSword = playerToMouse.normalized;
 
-        var playerAngle = Vector3.SignedAngle(Vector3.right, playerToSword, Vector3.forward);
+        /// var playerAngle = Vector3.Angle(Vector3.right, playerToMouse.normalized, Vector3.forward);
+        //var playerAngle = Vector3.Angle(Vector3.right, playerToMouse.normalized, V);
+        var mouseAngle = Vector2.Angle(Vector2.right, new Vector2(playerToMouse.x, playerToMouse.y).normalized);
+        var swordAngle = transform.rotation.eulerAngles.z;
 
-        float angleDiff = playerAngle - mouseAngle;
+        //var angleDiff = Vector2.Angle(transform.right, new Vector2(playerToMouse.x, playerToMouse.y).normalized) * Mathf.Deg2Rad;
 
-        //var torque = Mathf.Deg2Rad * angleDiff * rb.inertia;
-
-        //rb.AddTorque(torque, ForceMode2D.Impulse);
-
-
-
-
-        //var torque = angle * acceleration * Time.deltaTime;
-        //var torque = Mathf.Deg2Rad * angle * rb.inertia;
-
-        //rb.AddTorque(torque, ForceMode2D.Impulse);
-
-
-        //rb.
+        //Debug.Log("sword angle: " + swordAngle);
+        //Debug.Log("anglediff 2: " + angleDiff2);
 
         /*
-        if (target.magnitude > slowDownRadius)
-        {
-            var movemennt = target * acceleration * Time.deltaTime;
-        } 
-        else
+        if (swordAngle < 0.0f)
         { 
-            var movement = 
-        
+            swordAngle = (180.0f + swordAngle );
         }
         */
+        //transform.rotation.
 
 
-        //var movement = math.min(target.magnitude / slowDownRadius, 1.0f) * target * acceleration * Time.deltaTime;
+        //Debug.Log("mouse angle: " + playerAngle);
+        //Debug.Log("sword angle: " + swordAngle);
 
-        //var movement = 
+        //float angleDiff2 = (mouseAngle - swordAngle) * Mathf.Deg2Rad;
+        //angleDiff = math.abs(angleDiff);
 
-        //rb.AddForce(movement);
+
+        //Debug.Log("Angle diff: "+ angleDiff);
+
+        /*
+        var torque = angleDiff2 * rb.inertia * rotationAcceleration;
+        var slowdownTorque = rb.angularVelocity * (1 - math.min(math.abs(angleDiff2) / slowDownLimitTorque, 1));
+        torque -= slowdownTorque;
+
+        torque *= Time.deltaTime;
+        torque = math.clamp(torque, -maxRotationSpeed, maxRotationSpeed);
+        */
+        //Debug.Log("Slow down torque: " + slowdownTorque);
 
 
-        //transform.position = newPos;
-        //transform.rotation = Quaternion.Euler(0, 0, mouseAngle);
+
+        //rb.AddTorque(torque, ForceMode2D.Impulse);
+
         if (debugMode)
         {
             Debug.DrawLine(playerTransform.position, playerToMouse + playerTransform.position, Color.red);
             Debug.DrawLine(transform.position, playerToMouse + playerTransform.position, Color.yellow);
+            Debug.DrawLine(playerTransform.position, leftOverVelocity + playerTransform.position, Color.green);
             //Debug.Log("mousePos: " + mousePos);
             //Debug.Log("toMouseVec: " + toMouseVec);
             //Debug.Log("newPos: " + newPos);
-            Debug.Log("Angle: " + angleDiff);
+            //Debug.Log("Angle: " + angleDiff);
+            //Debug.Log("Torque: " + torque);
             //Debug.Log("forward: " + transform.forward);
 
             //Debug.Log("Slowdown: " + slowdown);
