@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
+        // TODO: In case of speedLevel penalties, change from accumulated time to time interval
+        
         elapsedTime += Time.deltaTime;
 
         if (elapsedTime > speedLevel * speedIncreaseInterval)
