@@ -4157,17 +4157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  playerTransform: {fileID: 525085658}
   debugMode: 1
   rb: {fileID: 0}
-  acceleration: 100
-  slowDownRadius: 1
-  stopRadius: 0
-  maxSpeed: 100
-  maxRotationSpeed: 1
-  slowDownLimitTorque: 0.1
-  rotationAcceleration: 10
+  speed: 100
+  slowDownRadius: 0.5
+  stopRadius: 0.1
   playerRb: {fileID: 525085655}
+  playerTransform: {fileID: 525085658}
 --- !u!212 &1296069146
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4248,7 +4244,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
