@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        //DontDestroyOnLoad(this.gameObject);
         instance = this;
         elapsedTime = 0f;
         speedLevel = 1;

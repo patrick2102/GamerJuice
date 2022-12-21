@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EndGoal : MonoBehaviour
 {
+    public UIManager UIManager;
+
     void Update()
     {
         
@@ -11,13 +13,12 @@ public class EndGoal : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(GameManager.instance.worldPeaceMode)
-            GameManager.instance.LoadScene(LevelsEnum.VictoryScreen);
-        else
-            GameManager.instance.LoadScene(LevelsEnum.VictoryScreenNormal);
-
-
-        if (collision.gameObject.tag.Equals("Player"))
-            Debug.Log("Player and won");
+        if (collision.gameObject.tag.Equals("Player")) {
+            if (GameManager.instance.worldPeaceMode)
+                GameManager.instance.LoadScene(LevelsEnum.VictoryScreen);
+            else
+                GameManager.instance.LoadScene(LevelsEnum.VictoryScreenNormal);
+            UIManager.gameIsFinished = true;
+        }
     }
 }
