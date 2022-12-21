@@ -45,6 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
   speedText: {fileID: 0}
+  speedLevelText: {fileID: 0}
   currentTime: 0
   countDown: 0
   player: {fileID: 0}

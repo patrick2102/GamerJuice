@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EndGoal : MonoBehaviour
 {
+    public UIManager UIManager;
 
     void Update()
     {
@@ -16,5 +17,7 @@ public class EndGoal : MonoBehaviour
 
         if (collision.gameObject.tag.Equals("Player"))
             Debug.Log("Player entered");
+
+        UIManager.gameIsFinished = true;
     }
 }
