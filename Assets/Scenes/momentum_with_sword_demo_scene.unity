@@ -2348,13 +2348,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9678d3c08f68e1d4ab79ee9a33d9ca4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 0
+  currentLevel: 2
+  bg: {fileID: 0}
   player: {fileID: 525085654}
   elapsedTime: 0
   initSpeedMultiplier: 4
   speedLevel: 0
   speedIncreaseInterval: 2
   speedIncreaseAmount: 1
+  worldPeaceMode: 0
 --- !u!4 &735910106
 Transform:
   m_ObjectHideFlags: 0

@@ -1245,7 +1245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4117410771711738355, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4117410771711738355, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2048,6 +2048,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8233100894726644903, guid: 77cb5a40f3167f547ba9a90feff42caa, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1085362631}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77cb5a40f3167f547ba9a90feff42caa, type: 3}
 --- !u!1 &578792842
@@ -2591,12 +2595,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 2
+  bg: {fileID: 0}
   player: {fileID: 525085654}
   elapsedTime: 0
   initSpeedMultiplier: 4
   speedLevel: 0
   speedIncreaseInterval: 2
   speedIncreaseAmount: 1
+  worldPeaceMode: 0
 --- !u!4 &735910106
 Transform:
   m_ObjectHideFlags: 0
@@ -3265,7 +3271,7 @@ Transform:
   m_LocalScale: {x: 11.377378, y: 11.377378, z: 11.377378}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887622827
 GameObject:
@@ -4101,6 +4107,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1085362631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1876028179, guid: 4dcb2280696b93943b9edb5036fea6fc, type: 3}
+  m_PrefabInstance: {fileID: 750788206}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334ec4973d885b7448dd3963eab7865c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1121140218
 GameObject:
   m_ObjectHideFlags: 0

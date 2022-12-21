@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum LevelsEnum
 {
-    VictoryScreen, EndGoalDemo, Level_Design_00
+    VictoryScreen, VictoryScreenNormal, EndGoalDemo, Level_Design_00
 }

@@ -55,18 +55,22 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
         }
 
-        bg.pitch = elapsedTime / 10.0f;
-
-        if (Input.GetKey(KeyCode.P))
+        if (bg != null)
         {
-            worldPeaceMode = true;
-            bg.mute = false;
+            bg.pitch = elapsedTime / 10.0f;
+
+            if (Input.GetKey(KeyCode.P))
+            {
+                worldPeaceMode = true;
+                bg.mute = false;
+            }
         }
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene(currentLevel.ToString());
+        var targetScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(targetScene.name);
     }
 
 

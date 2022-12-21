@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         _instance = GameManager.instance;
+        _controller = player.GetComponent<PlayerForwardController>();
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class UIManager : MonoBehaviour
             currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
             timerText.text = "Time: " + currentTime.ToString("0.00");
 
-            _controller = player.GetComponent<PlayerForwardController>();
+            //_controller = player.GetComponent<PlayerForwardController>();
 
 
             speed = _controller.currentSpeed;
