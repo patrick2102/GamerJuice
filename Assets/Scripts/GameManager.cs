@@ -9,13 +9,16 @@ public class GameManager : MonoBehaviour
     public LevelsEnum currentLevel;
     public static GameManager instance;
     public static float speedMultiplier;
-    
+
+    public AudioSource bg;
+
     public GameObject player;
     public float elapsedTime;
     public float initSpeedMultiplier = 1f;
     public int speedLevel;
     public float speedIncreaseInterval = 5f;
     public float speedIncreaseAmount = 0.2f;
+    public bool worldPeaceMode = false;
     
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         speedMultiplier = initSpeedMultiplier;
+        worldPeaceMode = false;
 
         //LoadScene(currentLevel);
 
@@ -49,6 +53,14 @@ public class GameManager : MonoBehaviour
             speedLevel++;
             speedMultiplier += speedIncreaseAmount;
             player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
+        }
+
+        bg.pitch = elapsedTime / 10.0f;
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            worldPeaceMode = true;
+            bg.mute = false;
         }
     }
 
