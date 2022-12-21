@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public LevelsEnum currentLevel;
     public static GameManager instance;
     public static float speedMultiplier;
     
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        //DontDestroyOnLoad(this.gameObject);
         instance = this;
         elapsedTime = 0f;
         speedLevel = 1;
@@ -27,6 +29,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         speedMultiplier = initSpeedMultiplier;
+
+        //LoadScene(currentLevel);
+
+        Debug.Log("Number of levels available: " + SceneManager.sceneCountInBuildSettings);
     }
 
     
@@ -46,8 +52,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Restart()
+    public void Restart()
     {
-        
+        SceneManager.LoadScene(currentLevel.ToString());
+    }
+
+
+    public void LoadScene(LevelsEnum levelToLoad)
+    {
+        SceneManager.LoadScene(levelToLoad.ToString());
     }
 }
