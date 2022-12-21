@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R)) SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.R)) Restart();
         
         // TODO: In case of speedLevel penalties, change from accumulated time to time interval
         
