@@ -98,8 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aim: {fileID: 3557624567143372344}
   projectile_prefab: {fileID: 3154969789455878352, guid: 3d7232b5356714d4281099909600bfcf, type: 3}
-  projectile_speed: 20
-  shooting_cd: 1.5
+  projectile_speed: 50
+  range: 10
+  shooting_cd: 1
 --- !u!1 &3557624567143372344
 GameObject:
   m_ObjectHideFlags: 0

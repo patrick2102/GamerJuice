@@ -4145,14 +4145,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3557624565681545280, guid: 412761830913c1544ba4c070abb57721, type: 3}
-      propertyPath: shooting_cd
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3557624565681545280, guid: 412761830913c1544ba4c070abb57721, type: 3}
-      propertyPath: projectile_speed
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 3557624565681545281, guid: 412761830913c1544ba4c070abb57721, type: 3}
       propertyPath: m_Name
       value: ShootingEnemy
@@ -4749,6 +4741,14 @@ PrefabInstance:
     - target: {fileID: 6905182791536827126, guid: 604e3d4ea85b7cf439017f46aee38e44, type: 3}
       propertyPath: m_Name
       value: RunnyEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905182791536827127, guid: 604e3d4ea85b7cf439017f46aee38e44, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6905182791536827127, guid: 604e3d4ea85b7cf439017f46aee38e44, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 604e3d4ea85b7cf439017f46aee38e44, type: 3}
