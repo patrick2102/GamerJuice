@@ -107,6 +107,7 @@ MonoBehaviour:
   playerRb: {fileID: 2977232148667886704}
   playerTransform: {fileID: 2977232148667886717}
   pfc: {fileID: 2977232148667886716}
+  jumpForceMultiplier: 1
 --- !u!50 &2977232147291878843
 Rigidbody2D:
   serializedVersion: 4

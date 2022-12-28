@@ -18,6 +18,7 @@ public class SwordController : MonoBehaviour
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] Transform playerTransform;
     [SerializeField] PlayerForwardController pfc;
+    [SerializeField] float jumpForceMultiplier;
     Vector3 lastVelocity;
 
 
@@ -43,8 +44,6 @@ public class SwordController : MonoBehaviour
 
         distFromPlayer = (playerTransform.position - transform.position).magnitude;
 
-        Physics.IgnoreCollision(playerRb.GetComponent<Collider>(), GetComponent<Collider>());
-
     }
 
     // Update is called once per frame
@@ -65,7 +64,7 @@ public class SwordController : MonoBehaviour
         var velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
 
         //Apply force to the player if the sword hits a surface.
-        var leftOverVelocity = (velocity - lastVelocity) * 0.5f;
+        var leftOverVelocity = (velocity - lastVelocity) * jumpForceMultiplier;
         playerRb.AddForce(leftOverVelocity, ForceMode2D.Impulse);
 
 
