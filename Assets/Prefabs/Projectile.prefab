@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2559277005844273236}
   - component: {fileID: 3233855013139269047}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: Projectile
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3154969789455878352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.974, y: 1.206, z: 0}
-  m_LocalScale: {x: 0.67172, y: 0.67172, z: 0.67172}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 0.9528302, g: 0.7868999, b: 0.057529315, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 77b47eac875b38f44aab56178a2c45de, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,7 +140,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
+    oldSize: {x: 0.17, y: 0.09}
     newSize: {x: 1, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,14 +148,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0036321543, y: 0.2470361}
-      - {x: -0.4940722, y: 0.0036323331}
-      - {x: -0.49703592, y: 0.0051225126}
-      - {x: -0.0021419674, y: -0.2470361}
-      - {x: 0.0065962374, y: -0.2470361}
-      - {x: 0.4940722, y: -0.0006682519}
-      - {x: 0.5029639, y: 0.00080529787}
-      - {x: 0.005105883, y: 0.2470361}
+    - - {x: -0.008019931, y: 0.029109597}
+      - {x: -0.037742764, y: 0.025571257}
+      - {x: -0.053869814, y: -0.0065782377}
+      - {x: -0.028468665, y: -0.033497334}
+      - {x: 0.034385514, y: -0.033497334}
+      - {x: 0.03189242, y: -0.016756818}
+      - {x: 0.03054592, y: 0.0051931133}
+      - {x: 0.032895155, y: 0.030572169}
 --- !u!114 &3233855013139269047
 MonoBehaviour:
   m_ObjectHideFlags: 0
