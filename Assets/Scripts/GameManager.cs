@@ -8,16 +8,23 @@ public class GameManager : MonoBehaviour
 {
     public LevelsEnum currentLevel;
     public static GameManager instance;
-    public static float speedMultiplier;
-
     public AudioSource bg;
-
     public GameObject player;
-    public float elapsedTime;
-    public float initSpeedMultiplier = 1f;
-    public int speedLevel;
+    
+    [Header("Speed Settings")]
     public float speedIncreaseInterval = 5f;
     public float speedIncreaseAmount = 0.2f;
+    public float initSpeedMultiplier = 1f;
+    public int MaxSpeedLevel = 50;
+    public int MinSpeedLevel; // Use in case of certain required speeds etc
+    private float intervalTimer;
+    
+    public static float speedMultiplier;
+    [Header("Current Runtime Values")]
+    public float elapsedTime;
+    public int speedLevel;
+    
+    [Header("World Peace?")]
     public bool worldPeaceMode = false;
     
     private void Awake()
@@ -26,6 +33,8 @@ public class GameManager : MonoBehaviour
         instance = this;
         elapsedTime = 0f;
         speedLevel = 1;
+        intervalTimer = 0f;
+        if (player == null) player = GameObject.Find("Player");
     }
 
     
@@ -47,13 +56,21 @@ public class GameManager : MonoBehaviour
         // TODO: In case of speedLevel penalties, change from accumulated time to time interval
         
         elapsedTime += Time.deltaTime;
+        intervalTimer += Time.deltaTime;
 
+        if (intervalTimer > speedIncreaseInterval)
+        {
+            IncreaseSpeed(1);
+            intervalTimer = 0f;
+        }
+        
+        /*
         if (elapsedTime > speedLevel * speedIncreaseInterval)
         {
             speedLevel++;
             speedMultiplier += speedIncreaseAmount;
             player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
-        }
+        }*/
 
         if (bg != null)
         {
@@ -67,6 +84,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void IncreaseSpeed(int increase)
+    {
+        for (int i = increase; i > 0; i--)
+        {
+            if (speedLevel + 1 > MaxSpeedLevel) break;
+            speedLevel++;
+            speedMultiplier += speedIncreaseAmount;
+        }
+        player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
+    }
+
+    public void PenalizeSpeed(int penalty)
+    {
+        for (int i = penalty; i > 0; i--)
+        {
+            if (speedLevel - 1 < MinSpeedLevel) break;
+            speedLevel--;
+            speedMultiplier -= speedIncreaseAmount;
+            Debug.Log($"Speed level decreased to {speedLevel}");
+        }
+        player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
+    }
+    
     public void Restart()
     {
         var targetScene = SceneManager.GetActiveScene();

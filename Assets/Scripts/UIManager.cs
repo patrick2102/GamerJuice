@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas);
+        if (player == null) player = GameObject.Find("Player");
     }
 
     void Start()

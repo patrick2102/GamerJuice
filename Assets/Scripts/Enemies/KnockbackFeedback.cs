@@ -17,9 +17,30 @@ public class KnockbackFeedback : MonoBehaviour
     public void PlayFeedback(GameObject sender, float strength){
         StopAllCoroutines();
         OnBegin?.Invoke();
-        Vector2 direction = (transform.position - sender.transform.position).normalized;
+        Vector2 direction;
+        if (WillPushUp(sender))
+        {
+            direction = Vector2.up;  
+        }
+        else
+        {
+            direction = (transform.position - sender.transform.position).normalized;
+        }
         rb2d.AddForce(direction * strength, ForceMode2D.Impulse);
+        GameManager.instance.PenalizeSpeed(1);
         StartCoroutine(Reset());
+    }
+
+    private bool WillPushUp(GameObject sender)
+    {
+        // FIXME: Find top of collision object instead of naive transform origin
+        if (transform.position.y > sender.transform.position.y) return true;
+        return false;
+    }
+    
+    private Vector2 FindPushDirection()
+    {
+        return Vector2.down;
     }
 
     private IEnumerator Reset(){
