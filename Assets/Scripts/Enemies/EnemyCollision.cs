@@ -28,7 +28,6 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag.Equals("Player")){
-            Debug.Log("Here");
             other.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(this.gameObject, this.strength);
         }
         if(other.gameObject.tag.Equals("Sword")){
@@ -38,8 +37,10 @@ public class EnemyCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag.Equals("Player")){
-            Debug.Log("There");
             other.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(this.gameObject, this.strength);
+        }
+        if(other.gameObject.tag.Equals("Sword")){
+            Destroy(this.gameObject);
         }
     }
 }

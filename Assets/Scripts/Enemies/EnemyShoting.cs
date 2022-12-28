@@ -18,6 +18,9 @@ public class EnemyShoting : MonoBehaviour
     float shooting_cd;
     float shooting_timer;
 
+    [SerializeField]
+    GameObject cannon;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,21 +30,23 @@ public class EnemyShoting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null) return;
         if((target.transform.position - this.transform.position).magnitude <= range){
             shooting_timer += Time.deltaTime;
                 
             var aiming_direction = (target.transform.position - this.transform.position).normalized;
             aim.transform.position = this.transform.position + aiming_direction;
+            float dot = Vector2.Dot(transform.right, aiming_direction);
+            dot = Mathf.Acos(dot);
+            float angles = 180 - dot * 180 / Mathf.PI;
 
             if(shooting_timer >= shooting_cd){
-                float dot = Vector2.Dot(transform.right, aiming_direction);
-                dot = Mathf.Acos(dot);
-                float angles = 180 - dot * 180 / Mathf.PI;
                 var projectile_position = aim.transform.position;
                 GameObject projectile = Instantiate(projectile_prefab, projectile_position, Quaternion.Euler(0, 0, angles));
                 projectile.GetComponent<ArrowMovement>().setArrowMovement(aiming_direction, projectile_speed);
                 shooting_timer = 0;
             }
+            cannon.transform.rotation = Quaternion.Euler(0, 0, angles);
         }
     }
 
