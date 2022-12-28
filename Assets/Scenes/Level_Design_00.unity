@@ -1225,15 +1225,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1563901257, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1100
+      value: -860
+      objectReference: {fileID: 0}
+    - target: {fileID: 1563901258, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
+      propertyPath: m_text
+      value: Speed Level
       objectReference: {fileID: 0}
     - target: {fileID: 4117410771391466036, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1100
+      value: -860
       objectReference: {fileID: 0}
     - target: {fileID: 4117410771687240032, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1100
+      value: -860
       objectReference: {fileID: 0}
     - target: {fileID: 4117410771711738355, guid: 66b0e265c26f59a4ca918e975a5372e3, type: 3}
       propertyPath: m_Pivot.x
@@ -2487,6 +2491,8 @@ MonoBehaviour:
   speedIncreaseInterval: 2
   speedIncreaseAmount: 1
   initSpeedMultiplier: 4
+  MaxSpeedLevel: 50
+  MinSpeedLevel: 0
   elapsedTime: 0
   speedLevel: 0
   worldPeaceMode: 0
