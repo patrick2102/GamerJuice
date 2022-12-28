@@ -786,10 +786,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 440125287}
     m_Modifications:
-    - target: {fileID: -7088989689859256377, guid: 77c06a3e8f01ca14eb58f36f640f8849, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3891855644550397741, guid: 77c06a3e8f01ca14eb58f36f640f8849, type: 3}
       propertyPath: m_Name
       value: TemporalGamerJuice (3)
