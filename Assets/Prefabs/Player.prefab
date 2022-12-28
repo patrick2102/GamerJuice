@@ -12,11 +12,10 @@ GameObject:
   - component: {fileID: 8578427019547904051}
   - component: {fileID: 2977232147291878846}
   - component: {fileID: 2977232147291878843}
-  - component: {fileID: 2977232147291878842}
   - component: {fileID: 2977232147291878844}
-  m_Layer: 0
-  m_Name: Sword
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: SwordTip
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977232147291878832}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.823, y: 0.041, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5757565336955366726}
   m_Father: {fileID: 2977232148667886717}
@@ -103,10 +102,11 @@ MonoBehaviour:
   debugMode: 1
   rb: {fileID: 0}
   speed: 100
-  slowDownRadius: 0.5
+  slowDownRadius: 1
   stopRadius: 0.1
   playerRb: {fileID: 2977232148667886704}
   playerTransform: {fileID: 2977232148667886717}
+  pfc: {fileID: 2977232148667886716}
 --- !u!50 &2977232147291878843
 Rigidbody2D:
   serializedVersion: 4
@@ -122,30 +122,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 1
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!255 &2977232147291878842
-FixedJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977232147291878832}
-  m_Enabled: 0
-  serializedVersion: 4
-  m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 2977232148667886704}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 2, y: 0}
-  m_DampingRatio: 0
-  m_Frequency: 0
 --- !u!58 &2977232147291878844
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +143,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!1 &2977232148667886705
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +157,7 @@ GameObject:
   - component: {fileID: 2977232148667886718}
   - component: {fileID: 2977232148667886719}
   - component: {fileID: 2977232148667886704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -189,7 +171,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977232148667886705}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -204,7 +186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2977232148667886705}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afd05466bd0d8fc42bf34deb2707527c, type: 3}
   m_Name: 
@@ -298,8 +280,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_LinearDrag: 1
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -316,7 +298,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5757565336955366726}
   - component: {fileID: 5676586749921518221}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,9 +312,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6461529814814088195}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 2977232147291878847}
   m_RootOrder: 0
