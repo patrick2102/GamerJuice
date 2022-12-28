@@ -93,6 +93,19 @@ public class SwordController : MonoBehaviour
 
         lastVelocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
 
+
+        //var angle = Vector3.SignedAngle(transform, playerToMouse, Vector3.);
+
+
+        //
+        //Debug.Log("angle: " + angle);
+
+        //transform.rotation = Quaternion.Euler(0, 0, 30);
+
+        //transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        //transform.rotation.eulerAngles = new Vector3(0.0f, 90.0f, 0.0f);
+
         if (debugMode)
         {
             Debug.DrawLine(playerTransform.position, playerToMouse + playerTransform.position, Color.red);
