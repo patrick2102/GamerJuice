@@ -17,12 +17,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         transform.position += new Vector3(velocity, 0, 0) * Time.deltaTime;
+
+        if(Input.GetButtonDown("Jump")){
+            Debug.Log("ok");
+            this.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 15, ForceMode2D.Impulse);
+        }
     }
 
     public void decreaseSpeed(float multiplier){
         velocity *= (1 - multiplier);
     }
 
+/*
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.tag.Equals("Enemy")){
             if(!other.GetComponent<EnemyCollision>().isParried())
@@ -31,5 +37,5 @@ public class PlayerMovement : MonoBehaviour
 
         if(other.tag.Equals("Projectile"))
             decreaseSpeed(0.1f);
-    }
+    }*/
 }

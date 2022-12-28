@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TinoScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/EndGoalDemo.unity
+    guid: 38a5b354e11b7084aabedb0deea2994f
+  - enabled: 1
+    path: Assets/Scenes/Final scenes/VictoryScreen.unity
+    guid: 7ea9d8e0b53b19d44b4e0e40fb8dcceb
+  - enabled: 1
+    path: Assets/Scenes/Final scenes/VictoryScreenNormal.unity
+    guid: ccc0a09c94c10644b95979e001bfa358
+  - enabled: 1
+    path: Assets/Scenes/momentum_with_sword_demo_scene.unity
+    guid: dc9b16ee0a2a4d646ad56f1e4130f90b
   m_configObjects: {}

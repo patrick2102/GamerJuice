@@ -21,6 +21,10 @@ public class BreakingEffect : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerForwardController>().Break(breakPower);
+        } 
+        else if (collision.gameObject.CompareTag("Sword"))
+        {
+            collision.gameObject.GetComponentInParent<PlayerForwardController>().Break(breakPower);
         }
     }
     

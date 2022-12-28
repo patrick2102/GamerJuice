@@ -9,6 +9,9 @@ public class ArrowMovement : MonoBehaviour
     float speed = 3.5f;
     [SerializeField]
     Vector3 direction;
+    [SerializeField]
+    float duration = 3.0f, lifeTime = 0.0f;
+    
 
     public void setArrowMovement(Vector3 direction, float speed){
         this.speed = speed;
@@ -23,6 +26,9 @@ public class ArrowMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lifeTime += Time.deltaTime;
+        if(lifeTime >= duration)
+            Destroy(this.gameObject);
         this.transform.position += direction * speed * Time.deltaTime;
     }
 }

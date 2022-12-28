@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7663951141529337966}
   - component: {fileID: -5628763704260906877}
   - component: {fileID: 2559277005844273236}
+  - component: {fileID: 3233855013139269047}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Projectile
@@ -99,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   direction: {x: 0, y: 0, z: 0}
+  duration: 3
+  lifeTime: 0
 --- !u!50 &-5628763704260906877
 Rigidbody2D:
   serializedVersion: 4
@@ -153,3 +156,16 @@ PolygonCollider2D:
       - {x: 0.4940722, y: -0.0006682519}
       - {x: 0.5029639, y: 0.00080529787}
       - {x: 0.005105883, y: 0.2470361}
+--- !u!114 &3233855013139269047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3154969789455878352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66b90e8dce3bb645a65d32e68d7afb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 5
