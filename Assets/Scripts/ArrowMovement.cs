@@ -31,4 +31,14 @@ public class ArrowMovement : MonoBehaviour
             Destroy(this.gameObject);
         this.transform.position += direction * speed * Time.deltaTime;
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(!other.gameObject.tag.Equals("Enemy"))
+            GameObject.Destroy(this.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(!other.gameObject.tag.Equals("Enemy"))
+            GameObject.Destroy(this.gameObject);
+    }
 }
