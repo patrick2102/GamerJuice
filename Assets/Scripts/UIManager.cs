@@ -22,22 +22,30 @@ public class UIManager : MonoBehaviour
     public float speed;
     private PlayerForwardController _controller;
 
-    private GameManager _instance;
+
+    public static UIManager instance;
     public GameObject canvas;
 
     public bool gameIsFinished = false;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-        //DontDestroyOnLoad(canvas);
-        if (player == null) player = GameObject.Find("Player");
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            Destroy(canvas);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(instance);
+        DontDestroyOnLoad(canvas);
+
+
     }
 
     void Start()
     {
-        _instance = GameManager.instance;
-        _controller = player.GetComponent<PlayerForwardController>();
+
     }
 
     // Update is called once per frame
@@ -45,16 +53,18 @@ public class UIManager : MonoBehaviour
     {   
         if(!gameIsFinished)
         {
-            currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
+            //currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
+            currentTime = GameManager.instance.elapsedTime;
             timerText.text = "Time: " + currentTime.ToString("0.00");
 
-            //_controller = player.GetComponent<PlayerForwardController>();
+            if (player == null) player = GameObject.Find("Player");
 
+            if (_controller == null) _controller = player.GetComponent<PlayerForwardController>();
 
             speed = _controller.currentSpeed;
             speedText.text = "Speed = " + speed.ToString("0.00");
 
-            speedLevelText.text = "Speed Level = " + _instance.speedLevel.ToString();
+            speedLevelText.text = "Speed Level = " + GameManager.instance.speedLevel.ToString();
         }
     }
 }
