@@ -24,7 +24,9 @@ public class KnockbackFeedback : MonoBehaviour
         }
         else
         {
-            direction = (transform.position - sender.transform.position).normalized;
+            //direction = (transform.position - sender.transform.position).normalized;
+            direction = Vector2.left;
+            //direction = (sender.transform.position - transform.position).normalized;
         }
         rb2d.AddForce(direction * strength, ForceMode2D.Impulse);
         GameManager.instance.PenalizeSpeed(1);

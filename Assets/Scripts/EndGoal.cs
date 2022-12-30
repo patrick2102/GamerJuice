@@ -14,11 +14,12 @@ public class EndGoal : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag.Equals("Player")) {
+            UIManager.gameIsFinished = true;
             if (GameManager.instance.worldPeaceMode)
                 GameManager.instance.LoadScene(LevelsEnum.VictoryScreen);
             else
                 GameManager.instance.LoadScene(LevelsEnum.VictoryScreenNormal);
-            UIManager.gameIsFinished = true;
+            //UIManager.gameIsFinished = true;
         }
     }
 }
