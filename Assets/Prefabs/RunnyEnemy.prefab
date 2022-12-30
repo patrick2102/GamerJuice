@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6905182791536827126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.51969, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66b90e8dce3bb645a65d32e68d7afb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 30
+  strength: 15
 --- !u!114 &6905182791536827127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   speed: 5
   isMoving: 0
   ChaseDistance: 15
+  sprite: {fileID: 0}
 --- !u!95 &1125482591221431679
 Animator:
   serializedVersion: 3

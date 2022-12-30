@@ -23,12 +23,12 @@ public class BreakingEffect : MonoBehaviour
         {
             //collision.gameObject.GetComponent<PlayerForwardController>().Break(breakPower);
             collision.gameObject.GetComponent<KnockbackFeedback>().PlayFeedback(this.gameObject, this.strength);
-        } 
+        } /*
         else if (collision.gameObject.CompareTag("Sword"))
         {
             //collision.gameObject.GetComponentInParent<PlayerForwardController>().Break(breakPower);
             collision.gameObject.GetComponentInParent<KnockbackFeedback>().PlayFeedback(this.gameObject, this.strength);
-        }
+        }*/
     }
     
 }

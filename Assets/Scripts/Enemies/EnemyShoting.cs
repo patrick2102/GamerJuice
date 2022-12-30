@@ -30,8 +30,12 @@ public class EnemyShoting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (target == null) return;
-        if((target.transform.position - this.transform.position).magnitude <= range){
+        if (target == null){
+            Debug.Log("here");
+            return;
+        }
+        if(((Vector2)(target.transform.position - this.transform.position)).magnitude <= range){
+            Debug.Log("There");
             shooting_timer += Time.deltaTime;
                 
             var aiming_direction = (target.transform.position - this.transform.position).normalized;

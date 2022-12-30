@@ -144,7 +144,7 @@ public class SwordController : MonoBehaviour
             //Debug.Log("Velocity: " + velocity);
             if (math.abs(velocity.y) > math.abs(velocity.x) && velocity.magnitude > 10.0f)
             {
-                Debug.Log("Parry");
+                //Debug.Log("Parry");
             }
         }
     }
