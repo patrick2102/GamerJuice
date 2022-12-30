@@ -41,8 +41,6 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(canvas);
 
 
-        if (player == null) player = GameObject.Find("Player");
-        _controller = player.GetComponent<PlayerForwardController>();
     }
 
     void Start()
@@ -59,8 +57,9 @@ public class UIManager : MonoBehaviour
             currentTime = GameManager.instance.elapsedTime;
             timerText.text = "Time: " + currentTime.ToString("0.00");
 
-            //_controller = player.GetComponent<PlayerForwardController>();
+            if (player == null) player = GameObject.Find("Player");
 
+            if (_controller == null) _controller = player.GetComponent<PlayerForwardController>();
 
             speed = _controller.currentSpeed;
             speedText.text = "Speed = " + speed.ToString("0.00");
