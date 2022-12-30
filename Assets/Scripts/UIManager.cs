@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        DontDestroyOnLoad(canvas);
+        //DontDestroyOnLoad(canvas);
         if (player == null) player = GameObject.Find("Player");
     }
 
