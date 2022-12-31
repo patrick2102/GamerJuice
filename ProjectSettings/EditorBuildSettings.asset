@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/momentum_with_sword_demo_scene.unity
     guid: dc9b16ee0a2a4d646ad56f1e4130f90b
+  - enabled: 1
+    path: Assets/Scenes/Final scenes/StartScreen.unity
+    guid: 0567c4914619e804890de5a8cd925528
+  - enabled: 1
+    path: Assets/Scenes/Final scenes/JonasScene.unity
+    guid: a998715b2089edd44bc95db76caad4f2
+  - enabled: 1
+    path: Assets/Scenes/Final scenes/TinoScene.unity
+    guid: c54143863b5e8d04d9b8ab7952ca41cd
   m_configObjects: {}
