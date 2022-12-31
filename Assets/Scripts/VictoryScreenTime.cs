@@ -17,6 +17,6 @@ public class VictoryScreenTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        victoryscreentime.text = "You beat the level in: " + LevelManager.instance.times[0].ToString("0.00");
+        victoryscreentime.text = "You beat the level in: " + LevelManager.instance.times[0].ToString("0.00") + "\n Press ESC to return to menu";
     }
 }
