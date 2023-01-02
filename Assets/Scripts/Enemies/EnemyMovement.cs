@@ -40,7 +40,6 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        Debug.Log("collided");
         if(!other.gameObject.tag.Equals("Player") && !other.gameObject.tag.Equals("Projectile")){
             direction *= -1;
             sprite.flipX = !sprite.flipX;
