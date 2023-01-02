@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public AudioSource bg;
     public GameObject player;
-    
+
     [Header("Speed Settings")]
     public float speedIncreaseInterval = 5f;
     public float speedIncreaseAmount = 0.2f;
@@ -18,15 +18,15 @@ public class GameManager : MonoBehaviour
     public int MaxSpeedLevel = 50;
     public int MinSpeedLevel; // Use in case of certain required speeds etc
     private float intervalTimer;
-    
+
     public static float speedMultiplier;
     [Header("Current Runtime Values")]
     public float elapsedTime;
     public int speedLevel;
-    
+
     [Header("World Peace?")]
     public bool worldPeaceMode = false;
-    
+
     private void Awake()
     {
         //DontDestroyOnLoad(this.gameObject);
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         if (player == null) player = GameObject.Find("Player");
     }
 
-    
+
     void Start()
     {
         speedMultiplier = initSpeedMultiplier;
@@ -48,13 +48,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Number of levels available: " + SceneManager.sceneCountInBuildSettings);
     }
 
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) Restart();
-        
+
         // TODO: In case of speedLevel penalties, change from accumulated time to time interval
-        
+
         elapsedTime += Time.deltaTime;
         intervalTimer += Time.deltaTime;
 
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
             IncreaseSpeed(1);
             intervalTimer = 0f;
         }
-        
+
         /*
         if (elapsedTime > speedLevel * speedIncreaseInterval)
         {
@@ -72,15 +72,10 @@ public class GameManager : MonoBehaviour
             player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
         }*/
 
-        if (bg != null)
+        if (Input.GetKey(KeyCode.P))
         {
-            bg.pitch = elapsedTime / 10.0f;
-
-            if (Input.GetKey(KeyCode.P))
-            {
-                worldPeaceMode = true;
-                bg.mute = false;
-            }
+            worldPeaceMode = true;
+            Debug.Log("World peace mode!");
         }
     }
 
@@ -106,7 +101,7 @@ public class GameManager : MonoBehaviour
         }
         player.GetComponent<PlayerForwardController>().ApplySpeedMultiplier();
     }
-    
+
     public void Restart()
     {
         var targetScene = SceneManager.GetActiveScene();
