@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -39,8 +40,6 @@ public class UIManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(instance);
         DontDestroyOnLoad(canvas);
-
-
     }
 
     void Start()
@@ -50,8 +49,8 @@ public class UIManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
-        if(!gameIsFinished)
+    {
+        if (gameIsFinished == false)
         {
             //currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
             currentTime = GameManager.instance.elapsedTime;
@@ -65,6 +64,12 @@ public class UIManager : MonoBehaviour
             speedText.text = "Speed = " + speed.ToString("0.00");
 
             speedLevelText.text = "Speed Level = " + GameManager.instance.speedLevel.ToString();
+        }
+        else
+        {
+            timerText.text = "";
+            speedText.text = "";
+            speedLevelText.text = "";
         }
     }
 }
